@@ -65,44 +65,44 @@
             <!-- Nav Item - Ordenes -->
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('ordenes_trabajo'); ?>">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-file"></i>
                     <span>Ordenes de Trabajo</span></a>
             </li>
             <!-- Nav Item - clientes -->
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('presupuestos'); ?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-file-invoice-dollar"></i>
                     <span>Presupuestos</span></a>
             </li>
             <!-- Nav Item - clientes -->
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('clientes'); ?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-users"></i>
                     <span>Clientes</span></a>
             </li>
 
             <!-- Nav Item - empleados -->
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('empleados'); ?>">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-toolbox"></i>
                     <span>Empleados</span></a>
             </li>
             <!-- Nav Item - Vehiculos -->
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('vehiculos'); ?>">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-car"></i>
                     <span>Vehiculos</span></a>
             </li>
             <!-- Nav Item - Vehiculos -->
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url(''); ?>">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-cog"></i>
                     <span>Configurar</span></a>
             </li>
             <!-- Nav Item - Vehiculos -->
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('almacen'); ?>">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-warehouse"></i>
                     <span>Almacén</span></a>
             </li>
             <!-- Divider -->
