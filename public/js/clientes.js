@@ -11,10 +11,20 @@ const { createApp, ref } = Vue
         telefono:"",
         email:"",
         clientes:[],
+        cliente:"",
+        texto_alert:"",
+        //campos del formuarlio a actualizar
+        actualizar_nombre:"",
+        actualizar_apellidos:"",
+        actualizar_direccion:"",
+        actualizar_telefono:"",
+        actualizar_email:"",
+        cliente_id:""
+
       }
     },
     methods:{
-      mostar(){
+      mostrar(){
         var me = this;
         var url = "/clientes_mostrar";
         axios.get(url)
@@ -41,12 +51,14 @@ const { createApp, ref } = Vue
           .then(response => {
             if (response.data == 1) {
               $('#nuevo_cliente').modal('hide');
-              this.nombre="";
-              this.apellidos="";
-              this.direccion="";
-              this.telefono="";
-              this.email="";
-              this.alert();
+              me.nombre="";
+              me.apellidos="";
+              me.direccion="";
+              me.telefono="";
+              me.email="";
+              me.texto_alert = "El cliente se registró correctamente";
+              me.alert();
+              me.mostrar();
             } 
         })
           .catch(function(error) {
@@ -54,10 +66,62 @@ const { createApp, ref } = Vue
         });
         
       },
-      acutalizar(){
-
+      mostrar_acutualizar(data){
+        var me  = this;
+        var url = '/actualizar_cliente_formulario/'+data;
+        axios.get(url)
+          .then(response => {
+          me.cliente_id = response.data[0]['cliente_id'];
+          me.actualizar_nombre = response.data[0]['nombre'];
+          me.actualizar_apellidos = response.data[0]['apellidos'];
+          me.actualizar_direccion = response.data[0]['direccion'];
+          me.actualizar_telefono = response.data[0]['telefono'];
+          me.actualizar_email = response.data[0]['email'];
+          $('#editar').modal('show');
+            
+        })
+          .catch(error => {
+          console.error(error);
+        });
       },
-      eliminar(){
+      acutalizar(){
+        var me = this;  
+        var url = 'actualizar_cliente';  
+            axios.post(url,{
+              'nombre':me.actualizar_nombre,
+              'apellidos':me.actualizar_apellidos,
+              'direccion':me.actualizar_direccion,
+              'telefono':me.actualizar_telefono,
+              'email':me.actualizar_email,
+              'cliente_id':me.cliente_id
+            })
+            .then(response => {
+              me.texto_alert = "Los datos del cliente se actualizaron correctamente";
+              me.alert();
+              me.mostrar();
+              $('#editar').modal('hide');
+          })
+            .catch(error => {
+            console.error(error);
+          });
+      },
+      advertencia(data){
+        this.cliente = data;
+        $('#advertencia').modal('show');
+      },
+      eliminar(data){
+        console.log(data);
+        var me = this;
+        var url = "/eliminar_cliente/"+ data;
+        axios.get(url)
+          .then(response => {
+            $('#advertencia').modal('hide');
+            me.mostrar();
+            me.alert();
+        })
+          .catch(error => {
+          console.error(error);
+        });
 
       },
       alert(){
@@ -73,6 +137,6 @@ const { createApp, ref } = Vue
       }
     },
     mounted(){
-      this.mostar();
+      this.mostrar();
     }
   }).mount('#app')

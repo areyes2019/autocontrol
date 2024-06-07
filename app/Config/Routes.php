@@ -11,8 +11,9 @@ $routes->get('/', 'Home::index');
 $routes->get('clientes', 'ClientesController::index');
 $routes->get('clientes_mostrar', 'ClientesController::mostrar');
 $routes->post('crear_cliente', 'ClientesController::crear');
-$routes->post('actualizar_cliente', 'ClintesController::actualizar');
-$routes->get('eliminar_cliente', 'ClintesController::eliminar');//clientes 
+$routes->get('actualizar_cliente_formulario/(:num)', 'ClientesController::actualizar_formulario/$1');
+$routes->post('actualizar_cliente', 'ClientesController::actualizar');
+$routes->get('eliminar_cliente/(:num)', 'ClientesController::eliminar/$1');
 
 //odenes de trabajo
 $routes->get('ordenes_trabajo', 'OrdenesController::index');
