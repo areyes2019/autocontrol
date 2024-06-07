@@ -15,6 +15,14 @@ $routes->get('actualizar_cliente_formulario/(:num)', 'ClientesController::actual
 $routes->post('actualizar_cliente', 'ClientesController::actualizar');
 $routes->get('eliminar_cliente/(:num)', 'ClientesController::eliminar/$1');
 
+//empleados 
+$routes->get('empleados', 'EmpleadosController::index');
+$routes->get('empleados_mostrar', 'EmpleadosController::mostrar');
+$routes->post('crear_empleado', 'EmpleadosController::crear');
+$routes->get('actualizar_empleado_formulario/(:num)', 'EmpleadosController::actualizar_formulario/$1');
+$routes->post('actualizar_empleado', 'EmpleadosController::actualizar');
+$routes->get('eliminar_empleado/(:num)', 'EmpleadosController::eliminar/$1');
+
 //odenes de trabajo
 $routes->get('ordenes_trabajo', 'OrdenesController::index');
 $routes->get('ordenes_mostrar', 'OrdenesController::mostrar');
@@ -22,12 +30,6 @@ $routes->get('crear_orden', 'OrdenesController::crear');
 $routes->post('actualizar_orden', 'OrdenesController::actualizar');
 $routes->get('eliminar_orden', 'OrdenesController::eliminar');
 
-//empleados
-$routes->get('empleados', 'EmpleadosController::index');
-$routes->get('empleados_mostrar', 'EmpleadosController::mostrar');
-$routes->get('crear_empleado', 'EmpleadosController::crear');
-$routes->post('actualizar_empleado', 'EmpleadosController::actualizar');
-$routes->get('eliminar_empleado', 'EmpleadosController::eliminar');
 
 //inventario
 $routes->get('inventario', 'InventarioController::index');

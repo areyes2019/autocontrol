@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Clientes extends Model
+class Empleados extends Model
 {
     protected $table            = 'empleados';
     protected $primaryKey       = 'empleado_id';

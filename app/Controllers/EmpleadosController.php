@@ -10,49 +10,70 @@ class EmpleadosController extends BaseController
 {
     public function index()
     {
-        //$model = new Empleados();
-        //$data['articulos'] = $model->findAll();
         return view('empleados');
     }
 
+    public function mostrar()
+    {
+        $model = new Empleados();
+        $resultado = $model->findAll();
+        return json_encode($resultado);
+    }
 
     public function crear()
     {
         $model = new Empleados();
         $data = [
-            'nombre' => $this->request->getPost('nombre'),
-            'apellidos' => $this->request->getPost('apellidos'),
-            'direccion' => $this->request->getPost('direccion'),
-            'telefono' => $this->request->getPost('telefono'),
-            'email' => $this->request->getPost('email'),
-            'cargo' => $this->request->getPost('cargo'),
-            'salario' => $this->request->getPost('salario')
+            'nombre' => $this->request->getvar('nombre'),
+            'apellidos' => $this->request->getvar('apellidos'),
+            'direccion' => $this->request->getvar('direccion'),
+            'telefono' => $this->request->getvar('telefono'),
+            'email' => $this->request->getvar('email'),
+            'cargo' => $this->request->getvar('cargo'),
+            'salario' => $this->request->getvar('salario'),
         ];
-        $model->insert($data);
-        return redirect()->to('empleados');
+                
+        
+        if ($model->insert($data)) {
+            return "1";
+        }
+        
     }
 
 
-    public function actualizar($id)
+    public function actualizar_formulario($id)
     {
+        
+        $query = new Empleados();
+        $query->where('empleado_id',$id);
+        $resultado = $query->findAll();
+
+        return json_encode($resultado);
+
+    }
+    public function actualizar()
+    {
+        
+
         $model = new Empleados();
         $data = [
-            'nombre' => $this->request->getPost('nombre'),
-            'apellidos' => $this->request->getPost('apellidos'),
-            'direccion' => $this->request->getPost('direccion'),
-            'telefono' => $this->request->getPost('telefono'),
-            'email' => $this->request->getPost('email'),
-            'cargo' => $this->request->getPost('cargo'),
-            'salario' => $this->request->getPost('salario')
+            'nombre' => $this->request->getvar('nombre'),
+            'apellidos' => $this->request->getvar('apellidos'),
+            'direccion' => $this->request->getvar('direccion'),
+            'telefono' => $this->request->getvar('telefono'),
+            'email' => $this->request->getvar('email'),
+            'cargo' => $this->request->getvar('cargo'),
+            'salario' => $this->request->getvar('salario'),
         ];
-        $model->update($id, $data);
-        return redirect()->to('empleados');
+        $id = $this->request->getvar('empleado_id');
+        if ($model->update($id,$data)) {
+            return "1";
+        }
     }
-
     public function eliminar($id)
     {
         $model = new Empleados();
         $model->delete($id);
-        return redirect()->to('empleados');
     }
 }
+
