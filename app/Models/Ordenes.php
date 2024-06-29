@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Clientes extends Model
+class Ordenes extends Model
 {
     protected $table            = 'ordenes_de_trabajo';
     protected $primaryKey       = 'orden_id';

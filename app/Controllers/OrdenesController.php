@@ -15,6 +15,10 @@ class OrdenesController extends BaseController
         return view('ordenes_de_trabajo');
     }
 
+    public function orden()
+    {
+       return view('orden_de trabajo');   
+    }
 
     public function crear()
     {

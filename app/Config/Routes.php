@@ -32,6 +32,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
 
 	//odenes de trabajo
 	$routes->get('ordenes_trabajo', 'OrdenesController::index');
+	$routes->get('orden', 'OrdenesController::orden');
 	$routes->get('ordenes_mostrar', 'OrdenesController::mostrar');
 	$routes->get('crear_orden', 'OrdenesController::crear');
 	$routes->post('actualizar_orden', 'OrdenesController::actualizar');
@@ -54,10 +55,10 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
 	$routes->get('eliminar_modelo', 'MarcasController::eliminar_modelo');
 
 	//presupuestos
-	$routes->get('presupuestos', 'PresupuestosController::index');
+	/*$routes->get('presupuestos', 'PresupuestosController::index');
 	$routes->get('crear_presupuesto', 'PresupuestosController::crear');
 	$routes->post('actualizar_presupuesto', 'PresupuestosController::actualizar');
-	$routes->get('eliminar_presupuesto', 'PresupuestosController::eliminar');
+	$routes->get('eliminar_presupuesto', 'PresupuestosController::eliminar');*/
 
 	//vehiculos
 	$routes->get('vehiculos', 'VehiculosController::index');
@@ -70,4 +71,20 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
 	$routes->post('crear_almacen', 'AlmacenController::crear');
 	$routes->post('actualizar_almacen', 'AlmacenController::actualizar');
 	$routes->get('eliminar_almacen', 'AlmacenController::eliminar');
+
+	/*Cotizaciones*/
+	$routes->get('presupuestos', 'PresupuestosController::index');
+	
+	$routes->get('nueva_cotizacion/(:num)', 'PresupuestosController::nueva/$1');
+	$routes->get('pagina_presupuesto/(:any)', 'PresupuestosController::pagina/$1');
+	$routes->get('editar_cotizacion/(:num)', 'PresupuestosController::editar/$1');
+	$routes->get('actualizar_cotizacion/(:num)', 'PresupuestosController::actualizar/$1');
+	$routes->get('eliminar_cotizacion/(:num)', 'PresupuestosController::eliminar/$1');
+	$routes->post('agregar_articulo', 'PresupuestosController::agregar');
+	$routes->get('mostrar_detalles/(:num)', 'PresupuestosController::mostrar_detalles/$1');
+	$routes->get('borrar_linea/(:num)', 'PresupuestosController::borrar_linea/$1');
+	$routes->get('descargar_cotizacion/(:num)', 'PresupuestosController::cotizacion_pdf/$1');
+	$routes->get('enviar', 'PresupuestosController::enviar');
+	$routes->get('enviar_pdf/(:num)', 'PresupuestosController::enviar_pdf/$1');
+	$routes->post('pago', 'PresupuestosController::pago');
 });

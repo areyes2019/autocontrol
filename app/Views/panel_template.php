@@ -303,7 +303,7 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Salir
                                 </a>
                             </div>
                         </li>
@@ -354,10 +354,10 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Confirma que deseas abandonar la sesión</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?php echo base_url('logout'); ?>">Logout</a>
+                    <button class="btn btn-secondary rounded-0" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary rounded-0" href="<?php echo base_url('logout'); ?>">Salir</a>
                 </div>
             </div>
         </div>

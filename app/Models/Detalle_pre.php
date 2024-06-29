@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Clientes extends Model
+class Detalle_pre extends Model
 {
     protected $table            = 'detalles_de_presupuesto';
     protected $primaryKey       = 'detalle_presupuesto_id';
